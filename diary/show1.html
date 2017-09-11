@@ -1,0 +1,32 @@
+<?php
+$con=mysqli_connect("localhost","root","password","diary");
+$query="SELECT date,title FROM content";
+$result=mysqli_query($con,$query);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	 <link href="css/bootstrap.min.css" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+<body>
+ <table width="100%" cellpadding="1" cellspacing="1" border="1">
+ <tr>
+ <th>date</th>
+ <th>Title</th>
+ </tr>
+
+ <?php
+
+ while($row=mysqli_fetch_assoc($result)){
+ echo "<tr>";
+ echo "<td>".$result['date']."</td>";
+ echo "<td>".$result['title']."</td>";
+ echo "</tr>";
+
+</table>
+</body>
+</html>

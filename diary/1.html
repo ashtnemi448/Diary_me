@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Summernote</title>
+  <link href="1.css" rel="stylesheet">
+  <script src="1.js"></script> 
+  <script src="2.js"></script> 
+  <link href="2.css" rel="stylesheet">
+  <script src="3.js"></script>
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+
+
+</head>
+<body>
+
+  <form action="content_writing.php" method="POST" id="my_form">  
+    <form class="ui form">
+  <div class="field">
+    <label>Date</label>
+    <input type="text" name="date" placeholder="Like 21 july 2k17">
+  </div>
+  <div class="field">
+    <label>Title</label>
+    <input type="text" name="title" placeholder="Anything">
+  </div>
+
+  <textarea><div id="summernote" class="mine" name='myname'></div></textarea>
+  <input type="submit" name="submit" class="btn btn-primary" style="margin-left: 50%;margin-right: 50%" value="submit">
+</form>
+
+
+  <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+
+    $('#summernote').summernote({
+  height: 500,                 // set editor height
+  minHeight: null,             // set minimum height of editor
+  maxHeight: null,             // set maximum height of editor
+  focus: true                  // set focus to editable area after initializing summernote
+});
+
+    //to select from editor
+   
+$(document).ready(function(){
+   $("#my_form").on("submit", function () {
+        var hvalue = $('.mine').text();
+        $(this).append("<input type='hidden' name='myname' value=' " + hvalue + " '/>");
+    });
+});
+
+</script>
+  </script>
+    
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+
+  <script src="semantic/dist/semantic.min.js"></script>
+
+</body>
+</html>
